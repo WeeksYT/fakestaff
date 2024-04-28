@@ -1,0 +1,12 @@
+
+}
+java:S1141'"5Extract this nested try block into a separate method.(É§ï¥şÿÿÿÿ8öÉî­ò1J$c7570885-85e0-41bd-8e31-4ce11d37348a
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡ô÷²ıÿÿÿÿ8Íş´ñ1J$cb8d64c8-c931-4727-92fc-0aa5322c9d14
+^
+java:S3626"Remove this redundant jump.(ûÁİ…8¾Íş´ñ1J$dfd24858-0308-4215-a4a9-8938314d6949
+~
+java:S6437"6Revoke and change this password, as it is compromised.(Æ¦¥ãùÿÿÿÿ8¿Íş´ñ1J$abf03f61-6fdc-498a-92e5-75b9060509bb
+q
+java:S1128".Remove this unused import 'org.bukkit.Bukkit'.(Ø­æ8Îş´ñ1J$a4418955-7092-4c19-b0b7-979c55560396
+w
+java:S1128"4Remove this unused import 'java.text.DecimalFormat'.(¤°Ó˜8Îş´ñ1J$feee3d36-a9b6-4e6a-b93a-2f8df8beff9f

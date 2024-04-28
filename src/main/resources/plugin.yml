@@ -1,0 +1,5 @@
+name: FakeStaffs
+version: '${project.version}'
+main: me.angellime.fakestaffs.FakeStaffs
+api-version: '1.16'
+softdepend: [LiteBans]

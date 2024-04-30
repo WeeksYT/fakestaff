@@ -1,0 +1,4 @@
+name: StaffFakeTime
+version: '${version}'
+main: me.angellime.stafffaketime.StaffFakeTime
+api-version: '1.16'

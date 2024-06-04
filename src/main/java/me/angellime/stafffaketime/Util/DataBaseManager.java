@@ -21,7 +21,7 @@ public class DataBaseManager {
         config.setJdbcUrl(url);
         config.setUsername("angellime");
         config.setPassword("cY7kE9nH4w");
-        config.setMaximumPoolSize(3);
+        config.setMaximumPoolSize(80);
         dataSource = new HikariDataSource(config);
 
     }

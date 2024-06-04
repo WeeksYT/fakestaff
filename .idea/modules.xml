@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/StaffFakeTime.main.iml" filepath="$PROJECT_DIR$/.idea/modules/StaffFakeTime.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/me.AngelLime.StaffFakeTime.main.iml" filepath="$PROJECT_DIR$/.idea/modules/me.AngelLime.StaffFakeTime.main.iml" />
     </modules>
   </component>
 </project>

@@ -2,3 +2,5 @@ name: StaffFakeTime
 version: '1.0'
 main: me.angellime.stafffaketime.StaffFakeTime
 api-version: '1.16'
+softdepend:
+  - LiteBans

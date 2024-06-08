@@ -84,6 +84,44 @@ public class DataBaseManager {
     }
 
 
+    public void addAntiChet(String nickname, String banet, String type, String reason) {
+
+        try (Connection connection = dataSource.getConnection()){
+            String insertSql = "INSERT INTO anticheat (type, evidence, issued_by, player_name) VALUES (?, ?, ?, ?)";
+
+            try {
+                connection.setAutoCommit(false); // Устанавливаем ручное управление транзакциями
+                try (PreparedStatement insertStatement = connection.prepareStatement(insertSql);) {
+
+                    // Вставка данных в таблицу punishments
+                    insertStatement.setString(1, type);
+                    insertStatement.setString(2, reason);
+                    insertStatement.setString(3, nickname);
+                    insertStatement.setString(4, banet);
+                    insertStatement.executeUpdate();
+
+                    connection.commit(); // Фиксация транзакции
+                } catch (SQLException e) {
+                    connection.rollback(); // Откат изменений в случае ошибки
+                    e.printStackTrace();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    connection.setAutoCommit(true); // Возвращаем автоматическое управление транзакциями
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
 
 
 

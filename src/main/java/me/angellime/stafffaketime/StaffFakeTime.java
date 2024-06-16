@@ -5,6 +5,7 @@ import litebans.api.Events;
 import me.angellime.stafffaketime.Command.CheckCommand;
 import me.angellime.stafffaketime.Command.CheckTabCompleter;
 import me.angellime.stafffaketime.Listenr.PlayerListener;
+import me.angellime.stafffaketime.Util.CheckTask;
 import me.angellime.stafffaketime.Util.DataBaseManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -22,6 +23,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 public final class StaffFakeTime extends JavaPlugin {
@@ -33,6 +35,7 @@ public final class StaffFakeTime extends JavaPlugin {
     private FileConfiguration pluginConfig;
     private HashMap<UUID, UUID> checkingPlayers = new HashMap<>();
     private HashMap<UUID, BossBar> bossBars = new HashMap<>();
+    private final Map<UUID, CheckTask> checkTasks = new HashMap<>();
     private Location checkLocation;
     private long checkDuration;
     private List<String> banReasons;
@@ -149,5 +152,9 @@ public final class StaffFakeTime extends JavaPlugin {
 
     public long getCheckDuration() {
         return checkDuration;
+    }
+
+    public Map<UUID, CheckTask> getCheckTasks() {
+        return checkTasks;
     }
 }

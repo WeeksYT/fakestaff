@@ -36,6 +36,7 @@ public class CheckTabCompleter implements TabCompleter {
             completions.add("start");
             completions.add("confirm");
             completions.add("ban");
+            completions.add("addtime");
             completions = completions.stream()
                     .filter(c -> c.toLowerCase().startsWith(args[1].toLowerCase()))
                     .collect(Collectors.toList());

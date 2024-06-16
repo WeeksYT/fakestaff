@@ -1,6 +1,8 @@
 package me.angellime.stafffaketime.Listenr;
 
+import me.angellime.stafffaketime.Command.CheckCommand;
 import me.angellime.stafffaketime.StaffFakeTime;
+import me.angellime.stafffaketime.Util.CheckTask;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -39,18 +41,25 @@ public class PlayerListener implements Listener {
     public void onPlayerQuit(PlayerQuitEvent event) {
         UUID playerId = event.getPlayer().getUniqueId();
         if (plugin.getCheckingPlayers().containsKey(playerId)) {
-            Player checker = Bukkit.getPlayer(plugin.getCheckingPlayers().get(playerId));
-            if (checker != null) {
-                String quitMessage = plugin.getConfig().getString("message.leave");
-                if (quitMessage != null) {
-                    quitMessage = quitMessage.replace("%player%", event.getPlayer().getName());
-                } else {
-                    quitMessage = "Игрок " + event.getPlayer().getName() + " вышел во время проверки.";
+            CheckTask task = plugin.getCheckTasks().get(playerId);
+            if (task != null && !task.isAlreadyBanned()) {
+                Player checker = Bukkit.getPlayer(plugin.getCheckingPlayers().get(playerId));
+                if (checker != null) {
+                    String quitMessage = plugin.getConfig().getString("message.leave");
+                    if (quitMessage != null) {
+                        quitMessage = quitMessage.replace("%player%", event.getPlayer().getName());
+                    } else {
+                        quitMessage = "Игрок " + event.getPlayer().getName() + " вышел во время проверки.";
+                    }
+                    checker.sendMessage(mossage(quitMessage));
+                    Bukkit.dispatchCommand(checker, "banip " + event.getPlayer().getName() + " 30d 2.4 (Лив) -s");
+                    task.setAlreadyBanned(true);
                 }
-                checker.sendMessage(mossage(quitMessage));
+                CheckCommand.checkInProgress = false;
+
+                plugin.getCheckingPlayers().remove(playerId);
+                plugin.getBossBars().remove(playerId).removeAll();
             }
-            plugin.getCheckingPlayers().remove(playerId);
-            plugin.getBossBars().remove(playerId).removeAll();
         }
     }
 
@@ -59,7 +68,6 @@ public class PlayerListener implements Listener {
         Player player = event.getPlayer();
         UUID playerUUID = player.getUniqueId();
         if (plugin.getCheckingPlayers().containsKey(playerUUID)) {
-            // Проверяем, что игрок действительно передвигается
             if (event.getFrom().getX() != event.getTo().getX() ||
                     event.getFrom().getY() != event.getTo().getY() ||
                     event.getFrom().getZ() != event.getTo().getZ()) {
@@ -79,11 +87,7 @@ public class PlayerListener implements Listener {
         }
     }
 
-
-
-    public String mossage(String string){
-
+    public String mossage(String string) {
         return ChatColor.translateAlternateColorCodes('&', string);
-
     }
 }

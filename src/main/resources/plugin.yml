@@ -4,3 +4,6 @@ main: me.angellime.stafffaketime.StaffFakeTime
 api-version: '1.16'
 softdepend:
   - LiteBans
+  - Multiverse-Core
+commands:
+  check:

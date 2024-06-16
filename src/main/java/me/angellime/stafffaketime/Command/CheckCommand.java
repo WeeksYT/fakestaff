@@ -57,10 +57,6 @@ public class CheckCommand implements CommandExecutor {
 
         String action = args[1].toLowerCase();
         if ("start".equals(action)) {
-            if (checkInProgress) {
-                sender.sendMessage(mossage(plugin.getConfig().getString("message.no-two")));
-                return true;
-            }
             if (sender instanceof Player) {
                 Player checker = (Player) sender;
                 startCheck(checker, target);

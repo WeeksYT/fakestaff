@@ -31,3 +31,5 @@ message:
   proverka: "&7[&cCheck&7] &fВы вызвали игрока &c%player%&f на проверку."
   succeful: "&7[&cCheck&7] &fВы прошли проверку!"
   time: "&7[&cCheck&7] &fВремя проверки вышло."
+  checker_message: "&d[Check] %player%: %message%"
+  target_message: "&d[Check] Вы: %message%"

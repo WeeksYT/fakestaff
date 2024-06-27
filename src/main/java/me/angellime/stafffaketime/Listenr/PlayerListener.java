@@ -8,10 +8,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.*;
 
 import java.util.UUID;
 
@@ -26,13 +23,30 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event) {
         UUID playerId = event.getPlayer().getUniqueId();
+        Player target = event.getPlayer();
         if (plugin.getCheckingPlayers().containsKey(playerId)) {
             UUID checkerId = plugin.getCheckingPlayers().get(playerId);
             Player checker = Bukkit.getPlayer(checkerId);
             if (checker != null) {
                 event.setCancelled(true);
-                checker.sendMessage(ChatColor.LIGHT_PURPLE + "[Check] " + event.getPlayer().getName() + ": " + event.getMessage());
-                event.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "[Check] Вы: " + event.getMessage());
+
+                checker.sendMessage(mossage(plugin.getConfig().getString("message.checker_message")
+                        .replace("%player%", event.getPlayer().getName())
+                        .replace("%message%", event.getMessage())));
+                target.sendMessage(mossage(plugin.getConfig().getString("message.target_message")
+                        .replace("%message%", event.getMessage())));
+            }
+
+            if(target != null ){
+                event.setCancelled(true);
+
+                target.sendMessage(mossage(plugin.getConfig().getString("message.checker_message")
+                        .replace("%player%", event.getPlayer().getName())
+                        .replace("%message%", event.getMessage())));
+
+                checker.sendMessage(mossage(plugin.getConfig().getString("message.target_message")
+                        .replace("%message%", event.getMessage())));
+
             }
         }
     }
@@ -86,6 +100,25 @@ public class PlayerListener implements Listener {
             player.sendMessage(mossage(plugin.getConfig().getString("message.no-command")));
         }
     }
+
+    @EventHandler
+    public void onPlayerCommand(PlayerTeleportEvent event) {
+        Player player = event.getPlayer();
+        UUID playerUUID = player.getUniqueId();
+        if (plugin.getCheckingPlayers().containsKey(playerUUID)) {
+            event.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void onPlayerCommand(PlayerItemConsumeEvent event) {
+        Player player = event.getPlayer();
+        UUID playerUUID = player.getUniqueId();
+        if (plugin.getCheckingPlayers().containsKey(playerUUID)) {
+            event.setCancelled(true);
+        }
+    }
+
 
     public String mossage(String string) {
         return ChatColor.translateAlternateColorCodes('&', string);

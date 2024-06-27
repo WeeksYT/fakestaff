@@ -1,11 +1,11 @@
 
 ±
-java:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(ù™à¥8–óÂ‚2J$d6cfe048-b1a7-4701-ae90-ba57dd650c04
+java:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(ù™à¥8–óÂ‚2J$76e2a603-7a5d-4bb9-b3cd-61c95bc14057
 ¶
-java:S1319‘"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(µâ¼éùÿÿÿÿ8—óÂ‚2J$e605d8cc-421d-4767-ad3f-f559f2db8d33
+java:S1319‘"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(µâ¼éùÿÿÿÿ8—óÂ‚2J$02596272-519b-4689-8801-0f47def79356
 •
-java:S3776a"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(÷«ƒµ8“ôÂ‚2J$56aeff50-9ff2-4c31-b1d9-2f06b0abfa42
+java:S3776a"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(÷«ƒµ8“ôÂ‚2J$42db61a8-74ec-47f9-91e6-b3791ab3de41
 ‡
-java:S1128"DRemove this unused import 'org.bukkit.command.ConsoleCommandSender'.(òäáÓ8†™®Š‚2J$9b3e76a4-5d9f-4bd7-a8be-e5fac12be85d
+java:S1128"DRemove this unused import 'org.bukkit.command.ConsoleCommandSender'.(òäáÓ8†™®Š‚2J$c80064ac-f760-4dd6-a8c8-4063686e4998
 ‚
-java:S1128"?Remove this unused import 'org.jetbrains.annotations.Nullable'.(·½Ç8†™®Š‚2J$d77b24d9-c312-43da-96cf-e8040e8749d9
+java:S1128"?Remove this unused import 'org.jetbrains.annotations.Nullable'.(·½Ç8†™®Š‚2J$b50f0190-522e-4170-a628-48d9620d8e6f

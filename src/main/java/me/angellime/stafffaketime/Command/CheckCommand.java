@@ -38,7 +38,7 @@ public class CheckCommand implements CommandExecutor {
 
         Player target = Bukkit.getPlayer(args[0]);
         if (target == null) {
-            sender.sendMessage(ChatColor.RED + "Player not found.");
+            sender.sendMessage(ChatColor.RED + "Игрока не существует.");
             return true;
         }
 
